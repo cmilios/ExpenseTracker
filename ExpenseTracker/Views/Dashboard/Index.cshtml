@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["isDashboard"] = true;
+}
+
+
+@*Summary Widgets*@
+<div class="row mb-4">
+    @*<div class="mb-3">
+        <ejs-dropdownlist id="ddl" dataSource="@ViewBag.DateSelection" placeholder="Date Range"
+                          floatLabelType="Never" allowFiltering="true" ignoreAccent="true" filterType="Contains" popupHeight="220px">
+            <e-dropdownlist-fields value="Value" text="Text"></e-dropdownlist-fields>
+
+        </ejs-dropdownlist>
+    </div>*@
+    <div class="col-md-4">
+        <div class="d-flex flex-row widget summary income">
+            <div class="dflex flex-column justify-content-center p-5">
+                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+            </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Total Income</span>
+                <h1 class="display-6 fw-bold">@ViewBag.TotalIncome</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="d-flex flex-row widget summary expense">
+            <div class="dflex flex-column justify-content-center p-5">
+                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+            </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Total Expense</span>
+                <h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="d-flex flex-row widget summary balance">
+            <div class="dflex flex-column justify-content-center p-5">
+                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+            </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Balance</span>
+                <h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+ @*Doughnut and Spline Charts*@
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="widget chart">
+            <div class="title p-4">
+                <h5 class="fw-bold">Expense By Category</h5>
+            </div>
+            <ejs-accumulationchart id="doughnutchart" enableSmartLabels="true" background="#1a222b">
+                <e-accumulation-series-collection>
+                    <e-accumulation-series dataSource="@ViewBag.DoughnutChartData" legendShape="Circle" xName="categoryTitleWithIcon" yName="amount"
+                    innerRadius="60%">
+                        <e-accumulationseries-datalabel visible="true" name="formattedAmount"></e-accumulationseries-datalabel>
+                    </e-accumulation-series>
+                </e-accumulation-series-collection>
+                <e-accumulationchart-legendsettings toggleVisibility="false" position="Top">
+                    <e-legendsettings-textstyle color="white" size="1rem"></e-legendsettings-textstyle>
+                </e-accumulationchart-legendsettings>
+                <e-accumulationchart-tooltipsettings enable></e-accumulationchart-tooltipsettings>
+            </ejs-accumulationchart>
+            
+        </div>
+        
+    </div>
+    <div class="col-md-8">
+        <div class="widget chart">
+        </div>
+    </div>
+
+</div>

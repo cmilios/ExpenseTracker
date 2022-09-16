@@ -31,6 +31,7 @@ namespace ExpenseTracker.Controllers
         public IActionResult AddOrEdit(int id=0)
         {
             PopulateCategories();
+            SetMaxDate();
             if (id == 0)
             {
                 return View(new Transaction());
@@ -63,6 +64,7 @@ namespace ExpenseTracker.Controllers
                 return RedirectToAction(nameof(Index));
             }
             PopulateCategories();
+            SetMaxDate();
             return View(transaction);
         }
 
@@ -94,6 +96,12 @@ namespace ExpenseTracker.Controllers
             Category DefaultCategory = new Category() { CategoryId = 0, Title = "Choose Category" };
             CategoryCollection.Insert(0,DefaultCategory);
             ViewBag.Categories = CategoryCollection;
+        }
+
+        [NonAction]
+        public void SetMaxDate()
+        {
+            ViewBag.MaxDate = DateTime.Now;
         }
     }
 }
