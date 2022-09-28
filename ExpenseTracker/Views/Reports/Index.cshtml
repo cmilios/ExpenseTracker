@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["PageTitle"] = "Reports";
+}
+
+
+@{
+    Html.BeginForm("CreateDocument", "Reports", FormMethod.Get);
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <span>Total Expenditure Report: </span>
+            </div>
+            <div class="col-md-6">
+                <ejs-button id="submit" type="submit" cssClass="e-success" content="Create Report"></ejs-button>
+            </div>
+           
+        </div>
+        
+           
+
+    }
+    Html.EndForm();
+}
