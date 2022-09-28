@@ -12,7 +12,7 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" name="TransactionId" value="@Model.TransactionId" />
                 <div class="mb-3">
-                    <ejs-datepicker id="date" ejs-for="Date" placeholder="Date" floatLabelType="Always" format="dd/MM/yyyy" max="@ViewBag.MaxDate"></ejs-datepicker>
+                    <ejs-datepicker id="date" ejs-for="Date" placeholder="Date" floatLabelType="Always" format="dd/MM/yyyy"></ejs-datepicker>
                 </div>
                 <div class="mb-3">
                     <ejs-dropdownlist id="ddl" ejs-for="CategoryId" dataSource="@ViewBag.Categories" placeholder="Category"
